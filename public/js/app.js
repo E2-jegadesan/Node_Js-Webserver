@@ -17,10 +17,6 @@ const MesTwo = document.querySelector('#mes-2')
 weatherform.addEventListener('submit', (e) => {
     e.preventDefault()
     const location = search.value;
-    // if (location.length === 0) {
-    //     console.log('please enter your address')
-    // }
-    // else {
     MesOne.textContent = 'Loading...'
     MesTwo.textContent = ''
     fetch('http://localhost:3000/location?address=' + location).then((response) => {
