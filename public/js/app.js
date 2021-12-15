@@ -29,11 +29,11 @@ weatherform.addEventListener('submit', (e) => {
                 MesOne.textContent = data.error
             } else {
                 const Weather_condition = data.forecast.climate
-                const Tempearture = 'It is currently' + ' ' + data.forecast.temperature+' ' + 'Degrees Out.'
+                const Tempearture = 'It is currently' + ' ' + data.forecast.temperature+' '
                 const Chance_of_rain = 'Chance of Rain: ' + ' ' + data.forecast.Chance_of_rain
                 MesOne.textContent = 'Location: '+data.location
                 MesTwo.textContent = 'Weather Condition: '+Weather_condition
-                MesThree.textContent = 'Temperature: '+Tempearture
+                MesThree.textContent = 'Temperature: '+Tempearture +'°c'
                 MesFour.textContent = Chance_of_rain +'%'
             }
 
