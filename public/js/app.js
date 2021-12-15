@@ -13,20 +13,28 @@ const weatherform = document.querySelector('form')
 const search = document.querySelector('input')
 const MesOne = document.querySelector('#mes-1')
 const MesTwo = document.querySelector('#mes-2')
+const MesThree = document.querySelector('#mes-3')
+const MesFour = document.querySelector('#mes-4')
 
 weatherform.addEventListener('submit', (e) => {
     e.preventDefault()
     const location = search.value;
     MesOne.textContent = 'Loading...'
     MesTwo.textContent = ''
+    MesThree.textContent =''
+    MesFour.textContent =''
     fetch('/location?address=' + location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 MesOne.textContent = data.error
             } else {
-                const value = data.forecast.climate + ',' + 'It is currently' + ' ' + data.forecast.temperature + ' ' + 'Degrees Out.' + 'chance of rain' + ' ' + data.forecast.Chance_of_rain
-                MesOne.textContent = data.location
-                MesTwo.textContent = value
+                const Weather_condition = data.forecast.climate
+                const Tempearture = 'It is currently' + ' ' + data.forecast.temperature+' ' + 'Degrees Out.'
+                const Chance_of_rain = 'Chance of Rain: ' + ' ' + data.forecast.Chance_of_rain
+                MesOne.textContent = 'Location: '+data.location
+                MesTwo.textContent = 'Weather Condition: '+Weather_condition
+                MesThree.textContent = 'Temperature: '+Tempearture
+                MesFour.textContent = Chance_of_rain +'%'
             }
 
         })
