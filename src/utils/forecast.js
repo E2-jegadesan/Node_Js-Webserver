@@ -9,6 +9,7 @@ const forecast = (address, callback) => {
             callback('Unable to find location Try Another..!', undefined)
         } else {
             callback(undefined, {
+                localtime: body.location.localtime,
                 climate: body.current.weather_descriptions[0],
                 temperature: body.current.temperature,
                 Chance_of_rain: body.current.precip
