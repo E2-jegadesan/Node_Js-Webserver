@@ -19,7 +19,7 @@ weatherform.addEventListener('submit', (e) => {
     const location = search.value;
     MesOne.textContent = 'Loading...'
     MesTwo.textContent = ''
-    fetch('http://localhost:3000/location?address=' + location).then((response) => {
+    fetch('/location?address=' + location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 MesOne.textContent = data.error
